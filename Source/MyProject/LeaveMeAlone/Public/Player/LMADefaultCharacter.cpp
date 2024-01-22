@@ -95,5 +95,5 @@ void ALMADefaultCharacter::ZoomCamera(float Value)
 	UE_LOG(LogTemp, Display, TEXT("Zoom %f"), Value);
 	SpringArm->TargetArmLength += Value * 100;
 	if (SpringArm->TargetArmLength > 1500.0f) SpringArm->TargetArmLength = 1400.0f;
-	if (SpringArm->TargetArmLength < 100.0f) SpringArm->TargetArmLength = 100.0f;
+	if (SpringArm->TargetArmLength < 500.0f) SpringArm->TargetArmLength = 500.0f;
 }

@@ -1,0 +1,868 @@
+{
+	"folders": [
+		{
+			"name": "MyProject",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "/media/ruslan/DATA/unreal"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp",
+			"vadimcn.vscode-lldb",
+			"ms-vscode.mono-debug",
+			"dfarley1.file-picker"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "MyProject Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Test",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Test",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject Linux Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Test",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Shipping",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Shipping",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject Linux Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject Linux Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"Linux",
+					"Shipping",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject LinuxArm64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject LinuxArm64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject LinuxArm64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Test",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Test",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject LinuxArm64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Test",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProject LinuxArm64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProject LinuxArm64 Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProjectEditor Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProjectEditor Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"MyProjectEditor Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			},
+			{
+				"label": "MyProjectEditor Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"MyProjectEditor",
+					"Linux",
+					"Development",
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/media/ruslan/DATA/unreal"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch MyProject (Debug)",
+				"request": "launch",
+				"program": "/home/ruslan/Documents/Unreal Projects/MyProject/Binaries/Linux/UnrealGame-Linux-Debug",
+				"preLaunchTask": "MyProject Linux Debug Build",
+				"args": [
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch MyProject (DebugGame)",
+				"request": "launch",
+				"program": "/home/ruslan/Documents/Unreal Projects/MyProject/Binaries/Linux/UnrealGame-Linux-DebugGame",
+				"preLaunchTask": "MyProject Linux DebugGame Build",
+				"args": [
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch MyProject (Development)",
+				"request": "launch",
+				"program": "/home/ruslan/Documents/Unreal Projects/MyProject/Binaries/Linux/UnrealGame",
+				"preLaunchTask": "MyProject Linux Development Build",
+				"args": [
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch MyProject (Test)",
+				"request": "launch",
+				"program": "/home/ruslan/Documents/Unreal Projects/MyProject/Binaries/Linux/UnrealGame-Linux-Test",
+				"preLaunchTask": "MyProject Linux Test Build",
+				"args": [
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch MyProject (Shipping)",
+				"request": "launch",
+				"program": "/home/ruslan/Documents/Unreal Projects/MyProject/Binaries/Linux/UnrealGame-Linux-Shipping",
+				"preLaunchTask": "MyProject Linux Shipping Build",
+				"args": [
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch MyProjectEditor (Debug)",
+				"request": "launch",
+				"program": "/media/ruslan/DATA/unreal/Engine/Binaries/Linux/UnrealEditor-Linux-Debug",
+				"preLaunchTask": "MyProjectEditor Linux Debug Build",
+				"args": [
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject"
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch MyProjectEditor (DebugGame)",
+				"request": "launch",
+				"program": "/media/ruslan/DATA/unreal/Engine/Binaries/Linux/UnrealEditor-Linux-DebugGame",
+				"preLaunchTask": "MyProjectEditor Linux DebugGame Build",
+				"args": [
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject"
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch MyProjectEditor (Development)",
+				"request": "launch",
+				"program": "/media/ruslan/DATA/unreal/Engine/Binaries/Linux/UnrealEditor",
+				"preLaunchTask": "MyProjectEditor Linux Development Build",
+				"args": [
+					"/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject"
+				],
+				"cwd": "/media/ruslan/DATA/unreal",
+				"type": "cppdbg",
+				"visualizerFile": "/media/ruslan/DATA/unreal/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Linux Development Build",
+				"program": "/media/ruslan/DATA/unreal/Engine/Build/BatchFiles/RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=/home/ruslan/Documents/Unreal Projects/MyProject/MyProject.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"console": "internalConsole",
+				"internalConsoleOptions": "openOnSessionStart",
+				"stopAtEntry": false,
+				"cwd": "/media/ruslan/DATA/unreal"
+			}
+		]
+	}
+}
