@@ -57,13 +57,31 @@ void ALMADefaultCharacter::Tick(float DeltaTime)
 	{
 		FHitResult ResultHit;
 		PC->GetHitResultUnderCursor(ECC_GameTraceChannel1, true, ResultHit);
-		float FindRotatorResultYaw = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(),ResultHit.Location).Yaw;
-		//SetActorRotation(FQuat(FRotator(0.0f, FindRotatorResultYaw, 0.0f)));
-		if (CurrentCursor)
-		{
-			CurrentCursor->SetWorldLocation(ResultHit.Location);
-		}
+		_Orientation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(),ResultHit.Location).Yaw;
+		SetActorRotation(FQuat(FRotator(0.0f, _Orientation, 0.0f)));
 	}
+
+	FVector movement = GetVelocity();
+	if (movement.IsZero())
+	{
+		_Velocity = 0.0f;
+	}
+	else
+	{
+		_Velocity = 50.0f;
+	}
+
+	if (_Sprint)
+	{
+		_Endurance -= DeltaTime;
+	}
+	else
+	{
+		_Endurance += DeltaTime;
+	}
+
+	if (_Endurance > 100.00f) _Endurance = 100.00f;
+	if (_Endurance < 0.00f) _Endurance = 0.00f;
 
 }
 
@@ -75,25 +93,38 @@ void ALMADefaultCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	PlayerInputComponent->BindAxis("MoveForward", this, &ALMADefaultCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ALMADefaultCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("ZoomCamera", this, &ALMADefaultCharacter::ZoomCamera);
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ALMADefaultCharacter::DoSprint);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ALMADefaultCharacter::StopSprint);
 	
 }
 
 void ALMADefaultCharacter::MoveForward(float Value)
 {
-	UE_LOG(LogTemp, Display, TEXT("MoveFORWARD %f"), Value);
 	AddMovementInput(GetActorForwardVector(), Value);
 }
 
 void ALMADefaultCharacter::MoveRight(float Value)
 {
-	UE_LOG(LogTemp, Display, TEXT("MoveRIGHT %f"), Value);
 	AddMovementInput(GetActorRightVector(), Value);
 }
 
 void ALMADefaultCharacter::ZoomCamera(float Value)
 {
-	UE_LOG(LogTemp, Display, TEXT("Zoom %f"), Value);
 	SpringArm->TargetArmLength += Value * 100;
-	if (SpringArm->TargetArmLength > 1500.0f) SpringArm->TargetArmLength = 1400.0f;
+	if (SpringArm->TargetArmLength > 1500.0f) SpringArm->TargetArmLength = 1500.0f;
 	if (SpringArm->TargetArmLength < 500.0f) SpringArm->TargetArmLength = 500.0f;
+}
+
+void ALMADefaultCharacter::DoSprint()
+{
+	UE_LOG(LogTemp, Display, TEXT("DoSprint"));
+	_Sprint = true;
+
+}
+
+void ALMADefaultCharacter::StopSprint()
+{
+	UE_LOG(LogTemp, Display, TEXT("StopSprint"));
+	_Sprint = false;
+
 }

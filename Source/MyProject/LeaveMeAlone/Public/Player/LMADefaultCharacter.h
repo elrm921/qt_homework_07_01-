@@ -44,6 +44,15 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	float _Orientation = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	float _Velocity = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	bool _Sprint = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	float _Endurance = 0.0f;
+
 private:
 	float YRotation = -75.0f;
 	float ArmLength = 1400.0f;
@@ -52,4 +61,6 @@ private:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void ZoomCamera(float Value);
+	void DoSprint();
+	void StopSprint();
 };
