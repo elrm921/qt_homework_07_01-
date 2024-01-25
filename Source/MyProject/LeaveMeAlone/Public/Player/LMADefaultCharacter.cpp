@@ -80,7 +80,7 @@ void ALMADefaultCharacter::Tick(float DeltaTime)
 		_Endurance += DeltaTime;
 	}
 
-	if (_Endurance > 100.00f) _Endurance = 100.00f;
+	if (_Endurance > 5.00f) _Endurance = 5.00f;
 	if (_Endurance < 0.00f) _Endurance = 0.00f;
 
 }
