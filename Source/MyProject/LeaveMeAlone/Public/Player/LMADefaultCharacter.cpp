@@ -8,6 +8,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "../Weapon/LMAWeaponComponent.h"
+#include "../Weapon/LMABaseWeapon.h"
 
 // Sets default values
 ALMADefaultCharacter::ALMADefaultCharacter()
@@ -33,6 +35,7 @@ ALMADefaultCharacter::ALMADefaultCharacter()
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
 
+	CurrentWeapon = CreateDefaultSubobject<ULMAWeaponComponent>("Weapon");
 }
 
 // Called when the game starts or when spawned
@@ -61,24 +64,11 @@ void ALMADefaultCharacter::Tick(float DeltaTime)
 		SetActorRotation(FQuat(FRotator(0.0f, _Orientation, 0.0f)));
 	}
 
-	FVector movement = GetVelocity();
-	if (movement.IsZero())
-	{
-		_Velocity = 0.0f;
-	}
-	else
-	{
-		_Velocity = 50.0f;
-	}
+	if (GetVelocity().IsZero()) _Velocity = 0.0f;
+	else _Velocity = 50.0f;
 
-	if (_Sprint)
-	{
-		_Endurance -= DeltaTime;
-	}
-	else
-	{
-		_Endurance += DeltaTime;
-	}
+	if (_Sprint) _Endurance -= DeltaTime;
+	else _Endurance += DeltaTime;
 
 	if (_Endurance > 5.00f) _Endurance = 5.00f;
 	if (_Endurance < 0.00f) _Endurance = 0.00f;
@@ -93,8 +83,14 @@ void ALMADefaultCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	PlayerInputComponent->BindAxis("MoveForward", this, &ALMADefaultCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ALMADefaultCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("ZoomCamera", this, &ALMADefaultCharacter::ZoomCamera);
+
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ALMADefaultCharacter::DoSprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ALMADefaultCharacter::StopSprint);
+
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ALMADefaultCharacter::FirePressed);
+	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ALMADefaultCharacter::FireReleased);
+
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ALMADefaultCharacter::ReloadPressed);
 	
 }
 
@@ -127,4 +123,22 @@ void ALMADefaultCharacter::StopSprint()
 	UE_LOG(LogTemp, Display, TEXT("StopSprint"));
 	_Sprint = false;
 
+}
+
+void ALMADefaultCharacter::FirePressed()
+{
+	UE_LOG(LogTemp, Display, TEXT("FirePressed"));
+	CurrentWeapon->FirePressed();
+}
+
+void ALMADefaultCharacter::FireReleased()
+{
+	UE_LOG(LogTemp, Display, TEXT("ReloadReleased"));
+	CurrentWeapon->FireReleased();
+}
+
+void ALMADefaultCharacter::ReloadPressed()
+{
+	UE_LOG(LogTemp, Display, TEXT("ReloadPressed"));
+	CurrentWeapon->ReloadPressed();
 }

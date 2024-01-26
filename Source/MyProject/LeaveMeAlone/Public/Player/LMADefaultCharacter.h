@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "../Weapon/LMAWeaponComponent.h"
 #include "LMADefaultCharacter.generated.h"
 
 class UCameraComponent;
@@ -37,6 +38,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cursor")
 	FVector CursorSize = FVector(20.0f, 40.0f, 40.0f);
 
+	UPROPERTY()
+	ULMAWeaponComponent* CurrentWeapon = nullptr;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -46,12 +50,15 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	float _Orientation = 0.0f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	float _Velocity = 0.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
-	bool _Sprint = false;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	float _Endurance = 0.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	bool _Sprint = false;
 
 private:
 	float YRotation = -75.0f;
@@ -61,6 +68,12 @@ private:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void ZoomCamera(float Value);
+
 	void DoSprint();
 	void StopSprint();
+
+	void FirePressed();
+	void FireReleased();
+
+	void ReloadPressed();
 };
